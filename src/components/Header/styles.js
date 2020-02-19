@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const textcolor = "#eeeeee";
 
 export const Container = styled.div`
-  background: #393e46;
   padding: 10px;
   border-radius: 0 0 5px 5px;
   display: flex;
@@ -21,7 +20,7 @@ export const Logo = styled(Link)`
   h1 {
     font-size: 24px;
     font-weight: bold;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
     color: ${textcolor};
   }
 
@@ -36,12 +35,6 @@ export const Cart = styled(Link)`
   display: flex;
   flex-direction: row;
   cursor: pointer;
-  /* svg {
-    margin: 5px 0;
-    height: 28px;
-    width: 28px;
-    color: ${textcolor};
-  } */
 
   transition: opacity 0.2s;
   &:hover {
