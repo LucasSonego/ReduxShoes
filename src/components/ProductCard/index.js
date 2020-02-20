@@ -1,24 +1,22 @@
 import React from "react";
 import { MdAddShoppingCart } from "react-icons/md";
 
-import { Container, AddToCart, AmmountInCart, TextBox } from "./styles";
+import { Container, AddToCart, AmmountInCart } from "./styles";
 
 export default function ProductCard(props) {
   return (
     <Container>
       <img src={props.image} alt="" />
 
-      <TextBox>
-        <span>{props.name}</span>
-        <strong>${props.price}</strong>
-      </TextBox>
+      <span>{props.name}</span>
+      <strong>${props.price}</strong>
 
       <AddToCart>
         <AmmountInCart>
           <MdAddShoppingCart size="24px" color="#FFF" />
-          <p>3</p>
+          <span>3</span>
         </AmmountInCart>
-        <p>ADD TO CART</p>
+        <span>ADD TO CART</span>
       </AddToCart>
     </Container>
   );

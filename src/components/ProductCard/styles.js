@@ -4,56 +4,65 @@ export const Container = styled.li`
   display: block;
   background-color: #fff;
   padding: 15px;
-  height: min-content;
+  height: auto;
   width: auto;
   border-radius: 5px;
 
   img {
     height: 280px;
     width: 280px;
+    margin-bottom: 5px;
   }
 
-  span {
+  > span {
     font-weight: bold;
     color: #393e46;
+    font-size: 14px;
   }
 
-  strong {
+  > strong {
     font-weight: bold;
-    margin-top: 4px;
+    margin: 5px 0;
     color: #000;
     font-size: 16px;
   }
 `;
 
-export const TextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 60px;
-`;
-
 export const AddToCart = styled.button`
-  background: #00adb5;
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  background: none;
   border: none;
   border-radius: 5px;
-  p {
-    color: #eee;
-    margin: 12px;
-    font-size: 16px;
+  background: #00adb5;
+
+  > span {
+    flex: 1;
+    text-align: center;
     font-weight: bold;
+    font-size: 16px;
+    color: #eee;
+  }
+
+  transition: 0.3s opacity;
+  &:hover {
+    opacity: 0.8;
   }
 `;
 
 export const AmmountInCart = styled.div`
-  background: #0091b5;
+  background: rgba(0, 0, 0, 0.1);
   display: flex;
   float: left;
   padding: 10px;
+  align-items: center;
   text-align: center;
   border-radius: 5px 0 0 5px;
-  p {
-    margin: 4px;
+
+  > span {
     font-size: 14px;
-    font-weight: normal;
+    color: #fff;
+    margin-left: 2px;
   }
 `;
