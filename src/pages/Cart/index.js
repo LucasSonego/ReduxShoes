@@ -1,7 +1,23 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { Container, ProductsTable } from "./styles";
+import ProductTableRow from "../../components/ProductTableRow";
+
+import products from "../../products/products";
 
 export default function Cart() {
-  return <h2>Cart</h2>;
+  return (
+    <Container>
+      <ProductsTable>
+        {products.map(p => (
+          <ProductTableRow
+            image={p.image}
+            name={p.name}
+            price={p.price}
+            key={p.image}
+          />
+        ))}
+      </ProductsTable>
+    </Container>
+  );
 }
