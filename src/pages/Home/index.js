@@ -4,6 +4,7 @@ import { Container } from "./styles";
 
 import ProductCard from "../../components/ProductCard";
 import api from "../../services/api";
+import { formatPrice } from "../../util/format";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,11 @@ export default function Home() {
   useEffect(() => {
     async function getApiData() {
       const response = await api.get("products");
-      setProducts(response.data);
+      const data = response.data.map(product => ({
+        ...product,
+        formattedPrice: formatPrice(product.price),
+      }));
+      setProducts(data);
     }
     getApiData();
   }, []);
@@ -21,7 +26,7 @@ export default function Home() {
       {products.map(p => (
         <ProductCard
           name={p.name}
-          price={p.price}
+          price={p.formattedPrice}
           image={p.image}
           key={p.image}
         />
