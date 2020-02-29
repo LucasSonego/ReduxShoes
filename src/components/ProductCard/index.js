@@ -9,7 +9,7 @@ export default function ProductCard(props) {
       <img src={props.image} alt="" />
 
       <span>{props.name}</span>
-      <strong>${props.price}</strong>
+      <strong>{props.price}</strong>
 
       <AddToCart>
         <AmmountInCart>
