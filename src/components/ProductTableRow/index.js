@@ -39,7 +39,7 @@ export default function ProductTableRow(props) {
               <button>
                 <MdRemoveCircleOutline size="26px" color="#00adb5" />
               </button>
-              <input type="number" readOnly value={2} />
+              <input type="number" readOnly value={props.amount} />
               <button>
                 <MdAddCircleOutline size="26px" color="#00adb5" />
               </button>
@@ -48,7 +48,7 @@ export default function ProductTableRow(props) {
           <td>
             <strong>
               $
-              {(props.price * 2)
+              {(props.price * props.amount)
                 .toFixed(2)
                 .toString()
                 .replace(".", ",")}
