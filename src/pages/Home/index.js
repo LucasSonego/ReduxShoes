@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 import { Container } from "./styles";
 
@@ -6,7 +7,7 @@ import ProductCard from "../../components/ProductCard";
 import api from "../../services/api";
 import { formatPrice } from "../../util/format";
 
-export default function Home() {
+function Home(props) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,6 +22,13 @@ export default function Home() {
     getApiData();
   }, []);
 
+  function hadleAddToCart(product) {
+    props.dispatch({
+      type: "ADD_TO_CART",
+      product,
+    });
+  }
+
   return (
     <Container>
       {products.map(p => (
@@ -29,8 +37,11 @@ export default function Home() {
           price={p.formattedPrice}
           image={p.image}
           key={p.image}
+          addToCart={() => hadleAddToCart(p)}
         />
       ))}
     </Container>
   );
 }
+
+export default connect()(Home);
