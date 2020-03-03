@@ -29,6 +29,18 @@ function Home(props) {
     });
   }
 
+  function getAmountOnCart(productId) {
+    let index = props.cart.findIndex(p => p.id === productId);
+
+    let amountOnCart;
+    if (index >= 0) {
+      amountOnCart = props.cart[index].amount;
+    } else {
+      amountOnCart = 0;
+    }
+    return amountOnCart;
+  }
+
   return (
     <Container>
       {products.map(p => (
@@ -36,12 +48,17 @@ function Home(props) {
           name={p.name}
           price={p.formattedPrice}
           image={p.image}
-          key={p.image}
+          key={p.id}
           addToCart={() => hadleAddToCart(p)}
+          amountOnCart={getAmountOnCart(p.id)}
         />
       ))}
     </Container>
   );
 }
 
-export default connect()(Home);
+const mapStateToProps = state => ({
+  cart: state.cart,
+});
+
+export default connect(mapStateToProps)(Home);
