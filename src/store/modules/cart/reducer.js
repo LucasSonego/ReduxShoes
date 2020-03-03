@@ -12,6 +12,20 @@ export default function cart(state = [], action) {
           draft.push({ ...action.product, amount: 1 });
         }
       });
+    case "REMOVE_ONE_PRODUCT_FROM_CART":
+      return produce(state, draft => {
+        const productIndex = draft.findIndex(p => p.id === action.product.id);
+
+        if (action.product.amount > 1) {
+          draft[productIndex].amount -= 1;
+        }
+      });
+    case "REMOVE_PRODUCT_FROM_CART":
+      return produce(state, draft => {
+        const productIndex = draft.findIndex(p => p.id === action.product.id);
+
+        draft.splice(productIndex, 1);
+      });
     default:
       return state;
   }
