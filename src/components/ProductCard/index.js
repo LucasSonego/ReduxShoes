@@ -14,7 +14,7 @@ export default function ProductCard(props) {
       <ButtonAddToCart onClick={props.addToCart}>
         <AmmountInCart>
           <MdAddShoppingCart size="24px" color="#FFF" />
-          <span>3</span>
+          <span>{props.amountOnCart > 0 && props.amountOnCart}</span>
         </AmmountInCart>
         <span>ADD TO CART</span>
       </ButtonAddToCart>
