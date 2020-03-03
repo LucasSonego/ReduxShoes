@@ -6,8 +6,32 @@ import {
 } from "react-icons/md";
 
 import { THead, TBody } from "./styles";
+import { connect } from "react-redux";
 
-export default function ProductTableRow(props) {
+function ProductTableRow(props) {
+  const product = props.product;
+
+  function increaseAmount() {
+    props.dispatch({
+      type: "ADD_TO_CART",
+      product,
+    });
+  }
+
+  function decreaseAmount() {
+    props.dispatch({
+      type: "REMOVE_ONE_PRODUCT_FROM_CART",
+      product,
+    });
+  }
+
+  function remove() {
+    props.dispatch({
+      type: "REMOVE_PRODUCT_FROM_CART",
+      product,
+    });
+  }
+
   return (
     <>
       <THead>
@@ -22,13 +46,13 @@ export default function ProductTableRow(props) {
       <TBody>
         <tr>
           <td>
-            <img src={props.image} alt="" />
+            <img src={product.image} alt="" />
           </td>
           <td>
-            <strong>{props.name}</strong>
+            <strong>{product.name}</strong>
             <span>
               $
-              {props.price
+              {product.price
                 .toFixed(2)
                 .toString()
                 .replace(".", ",")}
@@ -36,11 +60,11 @@ export default function ProductTableRow(props) {
           </td>
           <td>
             <div>
-              <button>
+              <button onClick={() => decreaseAmount()}>
                 <MdRemoveCircleOutline size="26px" color="#00adb5" />
               </button>
-              <input type="number" readOnly value={props.amount} />
-              <button>
+              <input type="number" readOnly value={product.amount} />
+              <button onClick={() => increaseAmount()}>
                 <MdAddCircleOutline size="26px" color="#00adb5" />
               </button>
             </div>
@@ -48,14 +72,14 @@ export default function ProductTableRow(props) {
           <td>
             <strong>
               $
-              {(props.price * props.amount)
+              {(product.price * product.amount)
                 .toFixed(2)
                 .toString()
                 .replace(".", ",")}
             </strong>
           </td>
           <td>
-            <button>
+            <button onClick={() => remove()}>
               <MdDelete size="28px" color="#00adb5" />
             </button>
           </td>
@@ -64,3 +88,5 @@ export default function ProductTableRow(props) {
     </>
   );
 }
+
+export default connect()(ProductTableRow);

@@ -18,14 +18,8 @@ function Cart(props) {
   return (
     <Container>
       <ProductsTable>
-        {props.cart.map(p => (
-          <ProductTableRow
-            image={p.image}
-            name={p.name}
-            price={p.price}
-            key={p.image}
-            amount={p.amount}
-          />
+        {props.cart.map(product => (
+          <ProductTableRow product={product} key={product.id} />
         ))}
       </ProductsTable>
       <Checkout>
