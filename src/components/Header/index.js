@@ -1,9 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import { GiRunningShoe, GiShoppingCart } from "react-icons/gi";
 
 import { Container, Logo, Cart, CartLabels } from "./styles";
 
-export default function header() {
+function header(props) {
   return (
     <Container>
       <Logo to="/">
@@ -13,7 +14,7 @@ export default function header() {
       <Cart to="/cart">
         <CartLabels>
           <strong>My Cart</strong>
-          <span>x items</span>
+          <span>{props.cartSize} items</span>
         </CartLabels>
         <GiShoppingCart
           size="30px"
@@ -24,3 +25,11 @@ export default function header() {
     </Container>
   );
 }
+
+const mapStateToProps = state => ({
+  cartSize: state.cart.reduce((acc, currnt) => {
+    return (acc += currnt.amount);
+  }, 0),
+});
+
+export default connect(mapStateToProps)(header);

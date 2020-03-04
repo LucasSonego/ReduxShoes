@@ -1,7 +1,8 @@
 import axios from "axios";
+import "dotenv/config";
 
 const api = axios.create({
-  baseURL: "http://192.168.0.102:3001",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 export default api;
