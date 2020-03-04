@@ -1,7 +1,7 @@
 import React from "react";
 import { MdAddShoppingCart } from "react-icons/md";
 
-import { Container, AddToCart, AmmountInCart } from "./styles";
+import { Container, ButtonAddToCart, AmmountInCart } from "./styles";
 
 export default function ProductCard(props) {
   return (
@@ -11,13 +11,13 @@ export default function ProductCard(props) {
       <span>{props.name}</span>
       <strong>{props.price}</strong>
 
-      <AddToCart>
+      <ButtonAddToCart onClick={props.addToCart}>
         <AmmountInCart>
           <MdAddShoppingCart size="24px" color="#FFF" />
-          <span>3</span>
+          <span>{props.amountOnCart > 0 && props.amountOnCart}</span>
         </AmmountInCart>
         <span>ADD TO CART</span>
-      </AddToCart>
+      </ButtonAddToCart>
     </Container>
   );
 }

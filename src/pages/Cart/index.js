@@ -1,14 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import { Container, ProductsTable, Checkout } from "./styles";
 import ProductTableRow from "../../components/ProductTableRow";
 
-import products from "../../products/products";
-
-export default function Cart() {
+function Cart(props) {
   function getTotalPrice() {
     let total = 0;
-    products.map(p => (total += p.price * 2));
+    props.cart.map(p => (total += p.price * p.amount));
 
     return total
       .toFixed(2)
@@ -19,13 +18,8 @@ export default function Cart() {
   return (
     <Container>
       <ProductsTable>
-        {products.map(p => (
-          <ProductTableRow
-            image={p.image}
-            name={p.name}
-            price={p.price}
-            key={p.image}
-          />
+        {props.cart.map(product => (
+          <ProductTableRow product={product} key={product.id} />
         ))}
       </ProductsTable>
       <Checkout>
@@ -38,3 +32,9 @@ export default function Cart() {
     </Container>
   );
 }
+
+const mapStateToProps = state => ({
+  cart: state.cart,
+});
+
+export default connect(mapStateToProps)(Cart);

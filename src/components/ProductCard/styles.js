@@ -28,7 +28,7 @@ export const Container = styled.li`
   }
 `;
 
-export const AddToCart = styled.button`
+export const ButtonAddToCart = styled.button`
   display: flex;
   align-items: center;
   margin-top: auto;
