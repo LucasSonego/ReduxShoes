@@ -1,48 +1,26 @@
 {
-  "stock": [
-    {
-      "id": 1,
-      "amount": 3
-    },
-    {
-      "id": 2,
-      "amount": 5
-    },
-    {
-      "id": 3,
-      "amount": 2
-    },
-    {
-      "id": 4,
-      "amount": 10
-    },
-    {
-      "id": 5,
-      "amount": 5
-    }
-  ],
   "products": [
     {
       "id": 1,
-      "name": "Black Shoe",
+      "name": "Black Shoes",
       "price": 49.99,
       "image": "https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/06/HZM-1731-006/HZM-1731-006_zoom1.jpg"
     },
     {
       "id": 2,
+      "name": "Black and White Shoes",
+      "price": 59.99,
+      "image": "https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/26/HZM-1731-026/HZM-1731-026_zoom1.jpg"
+    },
+    {
+      "id": 3,
       "name": "White Shoes that will not be white for so long, depending on where you live",
       "price": 79.99,
       "image": "https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/44/HZM-1731-044/HZM-1731-044_zoom1.jpg"
     },
     {
-      "id": 3,
-      "name": "Black and White Shoe",
-      "price": 59.99,
-      "image": "https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/26/HZM-1731-026/HZM-1731-026_zoom1.jpg"
-    },
-    {
       "id": 4,
-      "name": "White and Pink Shoes with an unnecessarily long name",
+      "name": "White and Red Shoes",
       "price": 65.99,
       "image": "https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/56/HZM-1731-056/HZM-1731-056_zoom1.jpg"
     },
@@ -51,6 +29,30 @@
       "name": "Blue and White Shoes",
       "price": 59.99,
       "image": "https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/36/HZM-1731-036/HZM-1731-036_zoom1.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Grey and Red Shoes",
+      "price": 49.99,
+      "image": "https://static.netshoes.com.br/produtos/tenis-adidas-run-falcon-masculino/18/COL-6981-018/COL-6981-018_zoom1.jpg?ts=1580225170&ims=544x"
+    },
+    {
+      "id": 7,
+      "name": "Completely White Shoes",
+      "price": 45.99,
+      "image": "https://static.netshoes.com.br/produtos/tenis-adidas-run-falcon-masculino/14/COL-6981-014/COL-6981-014_zoom1.jpg?ts=1564394098&ims=544x"
+    },
+    {
+      "id": 8,
+      "name": "Walking Shoes",
+      "price": 39.99,
+      "image": "https://static.netshoes.com.br/produtos/tenis-de-caminhada-leve-confortavel/06/E74-0492-006/E74-0492-006_zoom1.jpg?ims=544x"
+    },
+    {
+      "id": 9,
+      "name": "Completely Black Walking Shoes",
+      "price": 39.99,
+      "image": "https://static.netshoes.com.br/produtos/tenis-de-caminhada-leve-confortavel/04/E74-0492-304/E74-0492-304_zoom1.jpg?ims=544x"
     }
   ]
 }

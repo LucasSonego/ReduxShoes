@@ -51,7 +51,7 @@ export const ButtonAddToCart = styled.button`
   }
 `;
 
-export const AmmountInCart = styled.div`
+export const AmountInCart = styled.div`
   background: rgba(0, 0, 0, 0.1);
   display: flex;
   float: left;
