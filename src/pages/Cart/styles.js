@@ -5,6 +5,12 @@ export const Container = styled.div`
   border-radius: 5px;
   padding: 20px;
   margin-top: 10px;
+
+  p {
+    color: #777;
+    font-size: 15px;
+    padding: 10px;
+  }
 `;
 
 export const ProductsTable = styled.table`
@@ -28,6 +34,11 @@ export const Checkout = styled.div`
     transition: 0.2s opacity;
     &:hover {
       opacity: 0.8;
+    }
+
+    :disabled {
+      opacity: 0.5;
+      cursor: default;
     }
   }
 
