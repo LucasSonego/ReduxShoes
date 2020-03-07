@@ -17,13 +17,14 @@ function Cart(props) {
 
   return (
     <Container>
+      {props.cart.length < 1 && <p>Seems like your cart is empty</p>}
       <ProductsTable>
         {props.cart.map(product => (
           <ProductTableRow product={product} key={product.id} />
         ))}
       </ProductsTable>
       <Checkout>
-        <button>CHECKOUT</button>
+        <button disabled={props.cart.length < 1}>CHECKOUT</button>
         <div>
           <span>TOTAL:</span>
           <strong>${getTotalPrice()}</strong>
