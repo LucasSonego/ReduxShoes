@@ -6,27 +6,28 @@ import {
 } from "react-icons/md";
 
 import { THead, TBody } from "./styles";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
-function ProductTableRow(props) {
+export default function ProductTableRow(props) {
   const product = props.product;
+  const dispatch = useDispatch();
 
   function increaseAmount() {
-    props.dispatch({
+    dispatch({
       type: "ADD_TO_CART",
       product,
     });
   }
 
   function decreaseAmount() {
-    props.dispatch({
+    dispatch({
       type: "REMOVE_ONE_PRODUCT_FROM_CART",
       product,
     });
   }
 
   function remove() {
-    props.dispatch({
+    dispatch({
       type: "REMOVE_PRODUCT_FROM_CART",
       product,
     });
@@ -88,5 +89,3 @@ function ProductTableRow(props) {
     </>
   );
 }
-
-export default connect()(ProductTableRow);
