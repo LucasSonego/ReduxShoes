@@ -1,10 +1,20 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useMemo } from "react";
+import { useSelector } from "react-redux";
 import { GiRunningShoe, GiShoppingCart } from "react-icons/gi";
 
 import { Container, Logo, Cart, CartLabels } from "./styles";
 
-function header(props) {
+export default function Header(props) {
+  const cart = useSelector(state => state.cart);
+
+  const cartSize = useMemo(
+    () =>
+      cart.reduce((acc, current) => {
+        return (acc += current.amount);
+      }, 0),
+    [cart]
+  );
+
   return (
     <Container>
       <Logo to="/">
@@ -14,7 +24,7 @@ function header(props) {
       <Cart to="/cart">
         <CartLabels>
           <strong>My Cart</strong>
-          <span>{props.cartSize} items</span>
+          <span>{cartSize} items</span>
         </CartLabels>
         <GiShoppingCart
           size="30px"
@@ -25,11 +35,3 @@ function header(props) {
     </Container>
   );
 }
-
-const mapStateToProps = state => ({
-  cartSize: state.cart.reduce((acc, currnt) => {
-    return (acc += currnt.amount);
-  }, 0),
-});
-
-export default connect(mapStateToProps)(header);
