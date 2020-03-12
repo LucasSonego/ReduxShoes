@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { Container } from "./styles";
 
@@ -7,7 +7,9 @@ import ProductCard from "../../components/ProductCard";
 import api from "../../services/api";
 import { formatPrice } from "../../util/format";
 
-function Home(props) {
+export default function Home(props) {
+  const cart = useSelector(state => state.cart);
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -23,18 +25,18 @@ function Home(props) {
   }, []);
 
   function hadleAddToCart(product) {
-    props.dispatch({
+    dispatch({
       type: "ADD_TO_CART",
       product,
     });
   }
 
   function getAmountOnCart(productId) {
-    let index = props.cart.findIndex(p => p.id === productId);
+    let index = cart.findIndex(p => p.id === productId);
 
     let amountOnCart;
     if (index >= 0) {
-      amountOnCart = props.cart[index].amount;
+      amountOnCart = cart[index].amount;
     } else {
       amountOnCart = 0;
     }
@@ -56,9 +58,3 @@ function Home(props) {
     </Container>
   );
 }
-
-const mapStateToProps = state => ({
-  cart: state.cart,
-});
-
-export default connect(mapStateToProps)(Home);
